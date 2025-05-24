@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'telephone',
+        'role',
     ];
 
     /**
@@ -44,5 +46,53 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    // Relations
+    public function organizedEvents()
+    {
+        return $this->hasMany(Event::class, 'organizer_id');
+    }
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function favoriteEvents()
+    {
+        return $this->belongsToMany(Event::class, 'event_user');
+    }
+
+    // Méthodes pour vérifier les rôles
+    public function isUser()
+    {
+        return $this->role === 'user';
+    }
+
+    public function isOrganizer()
+    {
+        return $this->role === 'organizer';
+    }
+
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    // Scope pour les requêtes
+    public function scopeOrganizers($query)
+    {
+        return $query->where('role', 'organizer');
+    }
+
+    public function scopeAdmins($query)
+    {
+        return $query->where('role', 'admin');
     }
 }

@@ -1,0 +1,85 @@
+Voici les composants Blade structurés pour chaque entité (Event, Reservation, User, Comment) dans les trois formats demandés :
+
+### 1. Composants pour **Event**
+
+#### a) Grille (`resources/views/components/event/grid-item.blade.php`)
+```php
+
+```
+
+#### b) Liste (`resources/views/components/event/list-item.blade.php`)
+```php
+
+```
+
+#### c) Modal (`resources/views/components/event/modal.blade.php`)
+```php
+
+```
+
+### 2. Composants pour **Reservation**
+
+#### a) Grille (`resources/views/components/reservation/grid-item.blade.php`)
+```php
+
+```
+
+#### b) Liste (`resources/views/components/reservation/list-item.blade.php`)
+```php
+
+```
+
+#### c) Modal (`resources/views/components/reservation/modal.blade.php`)
+```php
+
+```
+
+### 3. Composants pour **User** (Admin)
+
+#### a) Grille (`resources/views/components/user/grid-item.blade.php`)
+```php
+
+```
+
+#### b) Liste (`resources/views/components/user/list-item.blade.php`)
+```php
+
+```
+
+#### c) Modal (`resources/views/components/user/modal.blade.php`)
+```php
+
+```
+
+### 4. Composants pour **Comment**
+
+#### a) Grille (`resources/views/components/comment/grid-item.blade.php`)
+```php
+
+```
+
+#### b) Liste (`resources/views/components/comment/list-item.blade.php`)
+```php
+
+```
+
+#### c) Modal (`resources/views/components/comment/modal.blade.php`)
+```php
+
+```
+
+### Utilisation des composants
+Exemple d'implémentation dans une vue :
+```php
+
+
+<!-- Modal -->
+<x-comment.modal :comment="$selectedComment" x-show="showCommentModal" />
+```
+
+Ces composants sont :
+1. **Responsives** : Adaptés à tous les écrans
+2. **Accessibles** : Structure sémantique
+3. **Modulaires** : Props pour personnalisation
+4. **Performants** : Optimisés pour le chargement
+5. **Sécurisés** : Vérifications des permissions
